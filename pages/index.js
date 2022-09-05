@@ -4,21 +4,63 @@ import React, { useState } from 'react'
 import styles from '../styles/Home.module.css'
 
 const STATES = [
-  'alabama', 'alaska', 'arizona', 'arkansas', 'california', 'colorado', 'connecticut', 'delaware', 'flordia', 'georgia',
-  'hawaii', 'idaho', 'illinois', 'indiana', 'iowa', 'kansas', 'kentucky', 'louisiana', 'maine', 'maryland', 'massachusetts',
-  'michigan', 'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska', 'nevada', 'new-hampshire', 'new-jersey',
-  'new-mexico', 'new-york', 'north-carolina', 'north-dakota', 'ohio', 'oklahoma', 'oregon', 'pennslyvania', 'rhode-island',
-  'south-carolina', 'south-dakota', 'tennessee', 'texas', 'utah', 'vermont', 'virginia', 'washington', 'west-virginia', 
-  'wisconsin', 'wyoming'
+  { key: 'alabama', name: 'Alabama' },
+  { key: 'alaska', name: 'Alaska' },
+  { key: 'arizona', name: 'Arizona' },
+  { key: 'arkansas', name: 'Arkansas' },
+  { key: 'california', name: 'California' },
+  { key: 'colorado', name: 'Colorado' },
+  { key: 'connecticut', name: 'Connecticut' },
+  { key: 'delaware', name: 'Delaware' },
+  { key: 'flordia', name: 'Flordia' },
+  { key: 'georgia', name: 'Georgia' },
+  { key: 'hawaii', name: 'Hawaii' },
+  { key: 'idaho', name: 'Idaho' },
+  { key: 'illinois', name: 'Illinois' },
+  { key: 'indiana', name: 'Indiana' },
+  { key: 'iowa', name: 'Iowa' },
+  { key: 'kansas', name: 'Kansas' },
+  { key: 'kentucky', name: 'Kentucky' },
+  { key: 'louisiana', name: 'Louisiana' },
+  { key: 'maine', name: 'Maine' },
+  { key: 'maryland', name: 'Maryland' },
+  { key: 'massachusetts', name: 'Massachusetts' },
+  { key: 'michigan', name: 'Michigan' },
+  { key: 'minnesota', name: 'Minnesota' },
+  { key: 'mississippi', name: 'Mississippi' },
+  { key: 'missouri', name: 'Missouri' },
+  { key: 'montana', name: 'Montana' },
+  { key: 'nebraska', name: 'Nebraska' },
+  { key: 'nevada', name: 'Nevada' },
+  { key: 'new-hampshire', name: 'New Hampshire' },
+  { key: 'new-jersey', name: 'New Jersey' },
+  { key: 'new-mexico', name: 'New Mexico' },
+  { key: 'new-york', name: 'New York' },
+  { key: 'north-carolina', name: 'North Carolina' },
+  { key: 'north-dakota', name: 'North Dakota' },
+  { key: 'ohio', name: 'Ohio' },
+  { key: 'oklahoma', name: 'Oklahoma' },
+  { key: 'oregon', name: 'Oregon' },
+  { key: 'pennslyvania', name: 'Pennslyvania' },
+  { key: 'rhode-island', name: 'Rhode Island' },
+  { key: 'south-carolina', name: 'South Carolina' },
+  { key: 'south-dakota', name: 'South Dakota' },
+  { key: 'tennessee', name: 'Tennessee' },
+  { key: 'texas', name: 'Texas' },
+  { key: 'utah', name: 'Utah' },
+  { key: 'vermont', name: 'Vermont' },
+  { key: 'virginia', name: 'Virginia' },
+  { key: 'washington', name: 'Washington' },
+  { key: 'west-virginia', name: 'West Virginia' },
+  { key: 'wisconsin', name: 'Wisconsin' },
+  { key: 'wyoming', name: 'Wyoming' },
 ]
-
-
 
 export default function Home() {
   const [color, setColor] = useState('red')
   const [usState, setUsState] = useState(rand_state())
   console.log(`color = ${color}`)
-  console.log(`state = ${usState}`)
+  console.log(`state = ${usState.key} ${usState.name}`)
 
   function rand_state() {
     const i = Math.floor(Math.random() * STATES.length)
@@ -55,8 +97,9 @@ export default function Home() {
           <button onClick={onColorSubmit}>Submit</button>
         </p>
 
+        <h2>{usState.name}</h2>
         <div className={styles.grid}>
-          <img src={`/${usState}-outline.jpg`}></img>
+          <img src={`/${usState.key}-outline.jpg`}></img>
         </div>
       </main>
 
@@ -75,3 +118,5 @@ export default function Home() {
     </div>
   )
 }
+
+
